@@ -80,7 +80,7 @@ void usarReserva(PilhaReserva *p) {
     Peca usada = p->itens[p->topo];
     p->topo--;
     printf("\n[!] Voce USOU a peca reservada %c (ID: %d)\n", usada.tipo, usada.id);
-
+}
 // Funcionalidades Mestre
 
 void trocarPecas(FilaCircular *f, PilhaReserva *p) {
@@ -94,7 +94,7 @@ void trocarPecas(FilaCircular *f, PilhaReserva *p) {
     printf("\n[OK] Pecas trocadas com sucesso!\n");
 }
 
-void inverterFilaPlha(FilaCircular *f, PilhaReserva *p) {
+void inverterFilaPilha(FilaCircular *f, PilhaReserva *p) {
     printf("\n[!] Invertendo estruturas...\n");
     //Exemplo: Movemos o que dá da pilha para a fila e vice-versa
     //Nota: Esta é uma operação complexa que exige cuidado com os tamanhos 
@@ -146,11 +146,11 @@ int main() {
         scanf("%d", &op);
         switch (op) {
         case 1: JogarPeca(&fila); break;
-        case 2: /* lógica do nível anterior*/ break;
-        case 3: reservarPeca(&fila, &pilha), usarReserva(&pilha); break;
+        case 2: reservarPeca(&fila, &pilha); break;
+        case 3: usarReserva(&pilha); break;
         case 4: trocarPecas(&fila, &pilha); break;
         case 5: desfazer(&fila); break;
-        case 6: inverterFilaPlha(&fila, &pilha); break;
+        case 6: inverterFilaPilha(&fila, &pilha); break;
         }
     } while (op !=0);
     return 0;
